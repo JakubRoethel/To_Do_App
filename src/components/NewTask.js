@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import {API_KEY, API_URL} from "../api/constants"
 import createTask from "../api/createTask"
 
-function NewTask({task}) {
+function NewTask({task},onAddTask) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
@@ -13,9 +13,7 @@ function NewTask({task}) {
             description,
             status:"open"
         }
-        // console.log(task)
-
-        createTask(task)
+        createTask(task,onAddTask)
     }
 
     const getTitle = (e)=>{
@@ -40,7 +38,7 @@ function NewTask({task}) {
                 <div class="mb-3">
                     <input onChange={getDescription} value= {description} placeholder="Description" type="text" class="form-control"/>
                 </div>
-                <button type="submit" class="btn btn-primary">Add task</button>
+                <button class="btn btn-primary">Add task</button>
             </form>
         </div>
     )

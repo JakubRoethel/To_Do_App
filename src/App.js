@@ -11,16 +11,27 @@ function App() {
 
   useEffect(()=> {
     getTasks(setTask)
-    // console.log(task)
-  },[])
+  },[task])
 
+  const onDeleteTask = (id) => {
+    setTask(prev=> prev.filter(el=> el.id != id))
+  }
+
+  const onAddTask = (task => {
+    setTask(prev => {
+      return [
+        ...task,
+        prev
+      ]
+    })
+  })
   
   return (
     <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-        <NewTask task={task}/>
-       {task.map(el=>{
-         return <TaskList {...task} key={task.id}/>
-      })}
+        <NewTask task={task} onAddTask={onAddTask}/>
+        {task.map(el=> {
+          return <TaskList key={el.id} {...el} onDeleteTask={onDeleteTask}/>
+        })}
     </div>
   );
 }
