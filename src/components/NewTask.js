@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import {API_KEY, API_URL} from "../api/constants"
 import createTask from "../api/createTask"
 
-function NewTask({task},onAddTask) {
+function NewTask(onAddTask) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
