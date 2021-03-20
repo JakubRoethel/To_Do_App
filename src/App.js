@@ -12,9 +12,9 @@ function App() {
 
   useEffect(()=> {
     getTasks(setTask)
-  },[])
+  },[task])
 
-  console.log(task)
+  // console.log(task)
 
   const onDeleteTask = (id) => {
     setTask(prev=> prev.filter(el=> el.id != id))
@@ -33,6 +33,7 @@ function App() {
     <div className="d-flex flex-column align-items-center justify-content-center mt-5">
         <NewTask onAddTask={onAddTask}/>
         {task.map(el=> {
+          // console.log(el)
           return <TaskList key={el.id} {...el} onDeleteTask={onDeleteTask}/>
         })}
     </div>

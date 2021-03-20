@@ -1,6 +1,6 @@
 import {API_KEY, API_URL} from "./constants";
 
-export const updateOperation = (id, operation, successCallback) => {
+const updateOperation = (id, operation, successCallback) => {
     fetch(`${API_URL}/operations/${id}`, {
       headers: {
         "Authorization": API_KEY,
@@ -17,3 +17,6 @@ export const updateOperation = (id, operation, successCallback) => {
       })
       .catch(err => console.log(err));
   };
+
+
+  export default updateOperation

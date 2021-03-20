@@ -1,6 +1,6 @@
 import {API_KEY, API_URL} from "./constants";
 
-export const removeOperation = (id, successCallback) => {
+const deleteOperation = (id, successCallback) => {
     fetch(`${API_URL}/operations/${id}`, {
       headers: {
         "Authorization": API_KEY
@@ -15,3 +15,5 @@ export const removeOperation = (id, successCallback) => {
       })
       .catch(err => console.log(err));
   };
+
+  export default deleteOperation
